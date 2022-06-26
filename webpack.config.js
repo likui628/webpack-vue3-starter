@@ -6,8 +6,23 @@ module.exports = {
   entry: "./src/main.js",
   mode: "production",
   output: {
-    filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    filename: "[name].[contenthash:8].js",
+  },
+  devServer: {
+    port: 3000,
+    hot: true,
+    open: true,
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
   module: {
     rules: [
