@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: "./src/main.ts",
   mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -18,6 +18,8 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
+    // Add `.ts` as a resolvable extension.
+    extensions: [".ts", ".js"],
   },
   optimization: {
     splitChunks: {
@@ -44,6 +46,11 @@ module.exports = {
       {
         test: /\.less$/,
         use: ["vue-style-loader", "css-loader", "less-loader"],
+      },
+      {
+        test: /\.ts$/,
+        loader: "ts-loader",
+        options: { appendTsSuffixTo: [/\.vue$/] },
       },
     ],
   },
