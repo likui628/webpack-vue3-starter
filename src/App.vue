@@ -3,5 +3,9 @@ import HelloWorld from '@/components/HelloWorld.vue';
 </script>
 
 <template>
-  <HelloWorld />
+  <div class="main">
+    <img alt="Vue.js logo" src="./assets/logo.png" decoding="async" width="215" height="186" />
+    <HelloWorld />
+
+  </div>
 </template>

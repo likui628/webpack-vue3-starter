@@ -53,6 +53,10 @@ module.exports = {
         loader: "ts-loader",
         options: { appendTsSuffixTo: [/\.vue$/] },
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   plugins: [
