@@ -9,7 +9,7 @@ module.exports = (env) => {
 
   return {
     entry: "./src/main.ts",
-    mode: "production",
+    mode: isProd ? "production" : "development",
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "[name].[contenthash:8].js",
@@ -29,6 +29,13 @@ module.exports = (env) => {
     optimization: {
       splitChunks: {
         chunks: "all",
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
+        },
       },
     },
     module: {
