@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from '@/components/HelloWorld.vue';
+import ClickCounter from '../components/ClickCounter.vue';
 </script>
 
 <template>
@@ -12,5 +13,6 @@ import HelloWorld from '@/components/HelloWorld.vue';
       height="186"
     >
     <HelloWorld />
+    <ClickCounter />
   </div>
 </template>
